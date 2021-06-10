@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         editIp = (EditText) findViewById(R.id.IP);
         ip=editIp.toString();
         editPort = (EditText) findViewById(R.id.PORT);
-       // port=editPort;
+       // port=editPort
         intent.putExtra("ip",editIp.getText().toString());
         intent.putExtra("port",editPort.getText().toString());
         sendJoystickActivity(intent);
