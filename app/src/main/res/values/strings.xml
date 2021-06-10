@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidAppRemoteControlJoystick</string>
+    <string name="IP">IP</string>
+    <string name="PORT">PORT</string>
+    <string name="CONNECT">CONNECT</string>
+
 </resources>
