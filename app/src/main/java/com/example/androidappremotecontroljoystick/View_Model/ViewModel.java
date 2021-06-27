@@ -1,70 +1,54 @@
 package com.example.androidappremotecontroljoystick.View_Model;
 
 import android.content.Context;
+import android.graphics.Paint;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
 import android.view.View;
 import android.graphics.Canvas;
 import android.view.MotionEvent;
 
+import com.example.androidappremotecontroljoystick.Model.FGPlayer;
 import com.example.androidappremotecontroljoystick.Views.JoystickActivity;
 
 
-public class ViewModel extends View {
+public class ViewModel{
     private String aileronSetCommand = "set controls/flight/aileron ";
     private String elavatorSetCommand = "set controls/flight/elevator ";
-    private String rudderSetCommand = "set controls/flight/rudder ";
-    private String throttleSetCommand = "set controls/flight/throttle ";
     private float aileron;
     private float elevator;
-    private float rudder;
-    private float throttle;
-    private JoystickActivity joystick;
+    private FGPlayer fgPlayer=new FGPlayer();
 
-    public ViewModel(Context context) {
-        super(context);
-        rudder=joystick.getRudder();
-        throttle=joystick.getThrottle();
-    }
+
 
 
     public void setAileron(float aileron) {
-        this.aileron = aileron;
+        String commend = "set controls/flight/aileron "+aileron+"\r\n";
+        fgPlayer.SendCommandsToSimulator(commend);
     }
 
     public void setElevator(float elevator) {
         this.elevator = elevator;
+        String commend = "set controls/flight/elevator "+elevator+"\r\n";
+        fgPlayer.SendCommandsToSimulator(commend);
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        //לצייר את הגוייסטיק
 
+    public void connect(String ip, int port) {
+        fgPlayer.setIp(ip);
+        fgPlayer.setPort(port);
+        fgPlayer.Connect();
     }
 
-    public boolean onTouch(View v, MotionEvent motionEvent) {
-       /*
-        if(){
-            //אם יש תזוזה של הגוייסטיק
-             FGPlayer.getInstance().SendCommandsToSimulator(aileronSetCommand + aileron + "\r\n");
-        FGPlayer.getInstance().SendCommandsToSimulator(elavatorSetCommand + elevator + "\r\n");
-        FGPlayer.getInstance().SendCommandsToSimulator(rudderSetCommand + rudder + "\r\n");
-        FGPlayer.getInstance().SendCommandsToSimulator(throttleSetCommand + throttle + "\r\n");
-        }
-       else{
-        onDraw();
-               FGPlayer.getInstance().SendCommandsToSimulator(aileronSetCommand + 0 + "\r\n");
-        FGPlayer.getInstance().SendCommandsToSimulator(elavatorSetCommand + 0 + "\r\n");
-        FGPlayer.getInstance().SendCommandsToSimulator(rudderSetCommand + 0 + "\r\n");
-        FGPlayer.getInstance().SendCommandsToSimulator(throttleSetCommand + 0 + "\r\n");
-        return true;
-       }
-
-        */
-
-        return true;
+    public void setRudder(int progress) {
+        float f=(float)progress;
+        String r= "set controls/flight/rudder " + (f-50)/50 + "\r\n";
+        fgPlayer.SendCommandsToSimulator(r);
     }
 
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+    public void setThrottle(int progress) {
+        float f=(float)progress;
+        String t= "set /controls/engines/current-engine/throttle " + f/100 + "\r\n";
+        fgPlayer.SendCommandsToSimulator(t);
     }
 }

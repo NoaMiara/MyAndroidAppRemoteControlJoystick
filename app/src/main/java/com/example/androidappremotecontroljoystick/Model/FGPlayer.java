@@ -38,41 +38,45 @@ public class FGPlayer {
 
     // connect server
     public void Connect() {
-        //active object design pattern
-        Runnable runnable = new Runnable() {
-            public void run() {
+        try{
+            Thread thread = new Thread(() -> {
                 try {
-                    InetAddress Ip = InetAddress.getByName(ip);
-                    // create new socket
-                    fg = new Socket(Ip, port);
+                    fg = new Socket(ip, port);
+                    System.out.println("noa");
                     out = new PrintWriter(fg.getOutputStream());
-                } catch(IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-        };
-        Thread thread = new Thread(runnable);
-        thread.start();
+            });
+            thread.start();
+            thread.join();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public void SendCommandsToSimulator(final String command)
-    {
-        Runnable runnable = new Runnable() {
-            public void run() {
+    public void SendCommandsToSimulator(final String command) {
+        try{
+            Thread thread = new Thread(() -> {
                 try {
                     if (fg != null && out != null) {
                         out.print(command);
+                        System.out.println(command);
                         out.flush();
                     }
-                }
-                catch(Exception e) {
+                } catch (Exception e) {
                     Log.e("TCP", "S: Error", e);
                 }
-            }
-        };
-        //separate thread for runnable
-        Thread thread = new Thread(runnable);
-        thread.start();
+            });
+            thread.start();
+            thread.join();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     // close the connection with the server

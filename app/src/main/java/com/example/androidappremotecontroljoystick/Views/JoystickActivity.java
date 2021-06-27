@@ -1,43 +1,71 @@
 package com.example.androidappremotecontroljoystick.Views;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.SeekBar;
 
-import com.example.androidappremotecontroljoystick.Model.FGPlayer;
-import com.example.androidappremotecontroljoystick.R;
+public class JoystickActivity extends View {
 
-public class JoystickActivity extends AppCompatActivity {
+    private final Paint paint;
+    private float x;
+    private float y;
+    private final float r;
+    public TouchEvent myOnChange;
 
-    private float aileron;
-    private float elevator;
-    private float rudder;
-    private float throttle;
+    //constructor
+    public JoystickActivity(Context context, AttributeSet attr) {
+        super(context, attr);
+        paint = new Paint();
+        paint.setColor(Color.GRAY);
+        x = 250;
+        y = 250;
+        r = 150;
+
+    }
+
+    // the function draw 2 circles which represents a joystick
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // find the rudder and throttle
-        SeekBar rudderSeekBar=(SeekBar)findViewById(R.id.rudder);
-        rudder=rudderSeekBar.getProgress();
-        SeekBar throttleSeekBar=(SeekBar)findViewById(R.id.throttle);
-        throttle=throttleSeekBar.getProgress();
-        super.onCreate(savedInstanceState);
-        FGPlayer.getInstance().Connect();
-        setContentView(R.layout.activity_joystick);
+    protected void onDraw(Canvas canvas) {
+        //paint.setColor(0xff444444);
+        canvas.drawCircle(x, y, r, paint);
+      // paint.setColor(Color.BLACK);
+//        canvas.drawCircle(x, y, r, paint);
     }
 
-    public float getRudder() {
-        return this.rudder;
-    }
 
-    public float getThrottle() {
-        return this.throttle;
-    }
+    // the function is called when there is a touch event on the joystick
+    // and according to the event change the joystick
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        super.onTouchEvent(event);
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_MOVE:
 
-    protected void onDestroy() {
-        super.onDestroy();
-        FGPlayer.getInstance().closeSocket();
+            case MotionEvent.ACTION_DOWN:
+                //check it's in the borders
+                if(event.getX()>70&&event.getX()<430){
+                    this.x = event.getX();
+                }
+                //check it's in the borders
+                if(event.getY()>70&&event.getY()<430){
+                    this.y = event.getY();
+                }
+                break;
+
+            case MotionEvent.ACTION_UP:
+                //return back the joystick to the center
+                x = 250;
+                y = 250;
+                break;
+            default:
+        }
+        myOnChange.update(x,y);
+        invalidate();
+        return true;
     }
 }
+

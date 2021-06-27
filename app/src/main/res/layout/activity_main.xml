@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".Views.MainActivity">
 
+
     <ImageView
         android:id="@+id/im1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/pl2"
-        tools:layout_editor_absoluteX="-40dp"
-        tools:layout_editor_absoluteY="-28dp" />
-
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-119dp" />
 
     <Button
         android:id="@+id/CONNECT"
@@ -25,29 +25,13 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="464dp"
         android:background="#009688"
         android:foregroundGravity="fill_horizontal"
         android:text="Connect"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PORT"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/text"
-        android:layout_width="122dp"
-        android:layout_height="118dp"
-        android:background="@drawable/round_button"
-        android:clickable="false"
-        android:textColor="#000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/throttle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.855" />
+        app:layout_constraintTop_toBottomOf="@+id/PORT" />
 
     <android.support.design.widget.TextInputEditText
         android:id="@+id/IP"
@@ -89,31 +73,66 @@
         tools:ignore="NotSibling,RtlCompat" />
 
     <SeekBar
-        android:id="@+id/throttle"
+        android:id="@+id/rudder"
         android:layout_width="319dp"
         android:layout_height="45dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="44dp"
+        android:max="100"
+        android:min="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:min="0"
-        android:max="1"/>
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <SeekBar
-        android:id="@+id/rudder"
-        android:layout_width="45dp"
+        android:id="@+id/throttle"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="156dp"
+        android:layout_marginRight="156dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="@color/teal_200"
+        android:rotation="270"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.671" />
+
+    <com.example.androidappremotecontroljoystick.Views.JoystickActivity
+        android:id="@+id/joystick"
+        android:layout_width="203dp"
+        android:layout_height="210dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="196dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CONNECT" />
+
+    <!--
+    <SeekBar
+        android:id="@+id/throttle"
+        android:layout_width="dp"
         android:layout_height="319dp"
         android:layout_gravity="center"
+        android:max="100"
         android:rotation="270"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="351dp"
-        android:min="-1"
-        android:max="1"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851"
+        tools:ignore="MissingConstraints" />
+    -->
 
 
 </android.support.constraint.ConstraintLayout>
