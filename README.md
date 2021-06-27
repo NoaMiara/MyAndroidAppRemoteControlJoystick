@@ -34,7 +34,7 @@ The connection to the server is created when the Activity is created and is clos
 
 ## UML
 
-![Android_App_Remote_Control_Joystick Diagram (1)](https://user-images.githubusercontent.com/71879700/123406856-05056000-d5b4-11eb-970a-f52ccafb094e.png)
+![Uploading Android_App_Remote_Control_Joystick Diagram (2).png…]()
 
 ## Video
 
