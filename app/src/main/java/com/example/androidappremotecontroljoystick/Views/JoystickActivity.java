@@ -30,10 +30,7 @@ public class JoystickActivity extends View {
     // the function draw 2 circles which represents a joystick
     @Override
     protected void onDraw(Canvas canvas) {
-        //paint.setColor(0xff444444);
         canvas.drawCircle(x, y, r, paint);
-      // paint.setColor(Color.BLACK);
-//        canvas.drawCircle(x, y, r, paint);
     }
 
 

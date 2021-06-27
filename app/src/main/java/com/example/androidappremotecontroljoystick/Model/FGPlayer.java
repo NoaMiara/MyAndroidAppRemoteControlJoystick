@@ -9,10 +9,6 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class FGPlayer {
-    private String aileronSetCommand = "set controls/flight/aileron ";
-    private String elavatorSetCommand = "set controls/flight/elevator ";
-    private String rudderSetCommand = "set controls/flight/rudder ";
-    private String throttleSetCommand = "set controls/flight/throttle ";
 
     private String ip;
     private int port;

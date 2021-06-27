@@ -13,14 +13,8 @@ import com.example.androidappremotecontroljoystick.Views.JoystickActivity;
 
 
 public class ViewModel{
-    private String aileronSetCommand = "set controls/flight/aileron ";
-    private String elavatorSetCommand = "set controls/flight/elevator ";
-    private float aileron;
-    private float elevator;
+
     private FGPlayer fgPlayer=new FGPlayer();
-
-
-
 
     public void setAileron(float aileron) {
         String commend = "set controls/flight/aileron "+aileron+"\r\n";
@@ -28,7 +22,6 @@ public class ViewModel{
     }
 
     public void setElevator(float elevator) {
-        this.elevator = elevator;
         String commend = "set controls/flight/elevator "+elevator+"\r\n";
         fgPlayer.SendCommandsToSimulator(commend);
     }
