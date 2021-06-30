@@ -33,7 +33,7 @@ The connection to the server is created when the Activity is created and is clos
 2. Use Android Studio version 4.2.1 and above.  </br>
 
 ## Running the Application
-1. Open the 'FlightGear' application and go to settings -> additional settings and insert the folowing line:
+1. Open the 'FlightGear' application and go to settings -> additional settings and insert the folowing line: </br>
 --telnet=socket,in,10,10.0.0.25,6400,tcp  </br>
 2. Click on "Fly" button in the FlightGear application. </br>
 3. Open Android Studio and Clone the project. </br>
