@@ -29,14 +29,26 @@ The joystick sends SET commands to the flight simulator via TCP/IP communication
 The connection to the server is created when the Activity is created and is closed when the Activity is destroyed.</br>
 
 ## Installation
-1. Download & install FlightGear v2020.3.6. </br>
-2. Use Android Studio
+1. Download & install FlightGear version 2020.3.8 </br>
+2. Use Android Studio version 4.2.1 and above.  </br>
+
+## Running the Application
+1. Open the 'FlightGear' application and go to settings -> additional settings and insert the folowing line: </br>
+--telnet=socket,in,10,10.0.0.25,6400,tcp  </br>
+2. Click on "Fly" button in the FlightGear application. </br>
+3. Open Android Studio and Clone the project. </br>
+4. Run the application. </br>
+5. Enter your IP address and the PORT (6400). </br>
+6. Click the "CONNECT" Button. </br>
+7. Now, you can fly! </br>
 
 ## UML
 
 ![Android_App_Remote_Control_Joystick Diagram (2)](https://user-images.githubusercontent.com/71879700/123549483-f2388a00-d771-11eb-8188-18d527a382d1.png)
 
 ## Video
+
+https://www.youtube.com/watch?v=bjmH2tU3iXo
 
 ## Developer
 * Noa Miara
