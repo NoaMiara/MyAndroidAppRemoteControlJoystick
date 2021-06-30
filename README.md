@@ -48,7 +48,6 @@ The connection to the server is created when the Activity is created and is clos
 
 ## Video
 
-https://www.youtube.com/watch?v=bjmH2tU3iXo
-
+https://youtu.be/3eGoFw7JaLI
 ## Developer
 * Noa Miara
