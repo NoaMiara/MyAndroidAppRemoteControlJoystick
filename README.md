@@ -16,7 +16,7 @@ The View then react to the changed data accordingly and shows them.
 The main_activity window contains 2 fields for entering IP & Port, as well as a CONNECT butten that is responsible for connecting to the flight simulator. </br>
 
 
-![app windows](https://user-images.githubusercontent.com/71879700/123542599-22246500-d753-11eb-988e-09e8c777c725.png)
+![newApp](https://user-images.githubusercontent.com/71879700/124033197-52ddf600-da02-11eb-8ad7-8ad7e77cf1fa.png)
 
 This window displays also the Joystick which allows the user to change the aileron, elevator, rudder and throttle values using a joystick and two seek bars, and responsible for controlling the plane's flight.</br>
 
