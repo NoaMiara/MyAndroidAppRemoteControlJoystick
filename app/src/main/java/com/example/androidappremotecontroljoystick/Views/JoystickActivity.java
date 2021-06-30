@@ -23,7 +23,7 @@ public class JoystickActivity extends View {
         paint.setColor(Color.GRAY);
         x = 250;
         y = 250;
-        r = 150;
+        r = 100;
 
     }
 
